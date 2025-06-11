@@ -24,7 +24,7 @@ public class Ticket {
 
 
 
-    //getterss...
+    //getterss, considering that I'm using from variables with a private access modifier...
     public int getId() {
         return id;
     }
@@ -61,6 +61,8 @@ public class Ticket {
 
 
 
+
+    //adds a new comment.
     public void addComment(String comment) {
         if(!comments.isEmpty()){
             comments += "\n"+comment;
@@ -69,6 +71,8 @@ public class Ticket {
 
 
 
+
+    //for a neater/ clearer ticket display
     @Override
     public String toString(){
         return "ID: "+ id +
