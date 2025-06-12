@@ -12,7 +12,7 @@ public class CCTS_App {
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args){
-        System.out.println("Call Center Ticket System");
+        System.out.println("********* Call Center Ticket System *********");
         while (true) {
             printMenu();
             int choice = getIntInput("Select option: ");
@@ -47,9 +47,9 @@ public class CCTS_App {
     }
 
     private static void printMenu() {
-        System.out.println("\nMain Menu:");
+        System.out.println("\nChoose an operation:");
         System.out.println("1. Create New Ticket");
-        System.out.println("2. View All Tickets");
+        System.out.println("2. Get All Tickets");
         System.out.println("3. View Ticket Details");
         System.out.println("4. Update Ticket");
         System.out.println("5. Delete Ticket");
@@ -197,7 +197,7 @@ public class CCTS_App {
 
         System.out.println("\nEnter ticket ID to view details, or 0 to return");
         int choice = getIntInput("Selection: ");
-        scanner.nextLine();  // Consume newline
+        scanner.nextLine();  // use...has newline
 
         if (choice > 0) {
             viewTicketDetails(choice);
