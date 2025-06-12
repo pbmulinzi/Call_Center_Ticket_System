@@ -17,37 +17,34 @@ public class Ticket {
         this.category = category;
         this.description = description;
         this.status = "Open";
-        this.priorityLevel = "Medium";
+        this.priorityLevel = "Low";
         this.comments = "";
 
     }
 
 
 
-    //getterss, considering that I'm using from variables with a private access modifier...
+    //getterss -> since the modifier(s) are private
     public int getId() {
         return id;
     }
     public String getCustomerName() {
         return customerName;
     }
-    public String getContactInfo() {
-        return contactInfo;
-    }
+
+
     public String getCategory() {
         return category;
     }
-    public String getDescription() {
-        return description;
-    }
+
+
     public String getStatus() {
         return status;
     }
-    public String getPriority() {
+
+
+    public String getPriorityLevel() {
         return priorityLevel;
-    }
-    public String getComments() {
-        return comments;
     }
 
 
@@ -61,18 +58,20 @@ public class Ticket {
 
 
 
-
-    //adds a new comment.
+    //adding new comment(s).
     public void addComment(String comment) {
-        if(!comments.isEmpty()){
-            comments += "\n"+comment;
+        if(comments.isEmpty()){
+            comments += comment; //add a comment if there are no comments
+        }else{
+            comments += "\n";
+            comments += comment; //still add a comment when there is already an existing comment(s)
         }
     }
 
 
 
 
-    //for a neater/ clearer ticket display
+    //convert to string for a neater/ clearer ticket display
     @Override
     public String toString(){
         return "ID: "+ id +
@@ -82,7 +81,7 @@ public class Ticket {
                 "\nTicket Description: " + description +
                 "\nTicket Status: " + status +
                 "\nPriority Level: " + priorityLevel +
-                "\nComments: " + comments;
+                "\nComment(s): " + comments;
     }
 }
 
