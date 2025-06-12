@@ -24,14 +24,13 @@ public class Ticket {
 
 
 
-    //getterss -> since the modifier(s) are private
+    //getterss, considering that I'm using from variables with a private access modifier...
     public int getId() {
         return id;
     }
     public String getCustomerName() {
         return customerName;
     }
-
 
     public String getCategory() {
         return category;
@@ -45,6 +44,9 @@ public class Ticket {
 
     public String getPriorityLevel() {
         return priorityLevel;
+    }
+    public String getComments() {
+        return comments;
     }
 
 
@@ -71,7 +73,7 @@ public class Ticket {
 
 
 
-    //convert to string for a neater/ clearer ticket display
+    //for a neater/ clearer ticket display
     @Override
     public String toString(){
         return "ID: "+ id +
@@ -81,7 +83,7 @@ public class Ticket {
                 "\nTicket Description: " + description +
                 "\nTicket Status: " + status +
                 "\nPriority Level: " + priorityLevel +
-                "\nComment(s): " + comments;
+                "\nComments: " + comments;
     }
 }
 
