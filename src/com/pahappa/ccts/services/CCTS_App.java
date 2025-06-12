@@ -118,7 +118,7 @@ public class CCTS_App {
         System.out.print("New Status: ");
         String status = scanner.nextLine();
 
-        System.out.println("Current Priority: " + t.getPriority());
+        System.out.println("Current Priority: " + t.getPriorityLevel());
         System.out.print("New Priority: ");
         String priority = scanner.nextLine();
 

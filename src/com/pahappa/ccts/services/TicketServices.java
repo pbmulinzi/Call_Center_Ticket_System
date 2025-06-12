@@ -3,7 +3,6 @@ package com.pahappa.ccts.services;
 import com.pahappa.ccts.models.Ticket;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Iterator;
 
 public class TicketServices {
     private final List<Ticket> tickets = new ArrayList<>();
@@ -33,19 +32,16 @@ public class TicketServices {
     }
 
 
-
     //to delete tickets
     public String deleteTicketById(int id) {
-
-        Iterator<Ticket> iterator = tickets.iterator();
-        while (iterator.hasNext()) {
-            Ticket t = iterator.next();
+        for (Ticket t : tickets) {
             if (t.getId() == id) {
-                iterator.remove();  //"safe deletion."
-                return "Ticket " +id+  " successfully deleted";
+                tickets.remove(t);
+                return "Ticket successfully deleted";
             }
+
         }
-        return "Error: Ticket " +id+  " not found. Deletion failed.";
+        return "Ticket not found";
     }
 
 
@@ -53,12 +49,12 @@ public class TicketServices {
     public List<Ticket> searchTickets(String customerName, String category, String status) {
         List<Ticket> results = new ArrayList<>();
         for (Ticket t : tickets) {
-            boolean nameMatch = t.getCustomerName().toLowerCase().contains(customerName.toLowerCase()); //1. Case-insensitive(if exact match) 2. If customer name contains search text
-            boolean categoryMatch = t.getCategory().equalsIgnoreCase(category); //Category -- exact match? (case-insensitive)
-            boolean statusMatch = t.getStatus().equalsIgnoreCase(status); //Case-insensitive(if exact match)
+            boolean nameMatch = customerName.isEmpty() || t.getCustomerName().toLowerCase().contains(customerName.toLowerCase());
+            boolean categoryMatch = category.isEmpty()|| t.getCategory().equalsIgnoreCase(category);
+            boolean statusMatch = status.isEmpty() || t.getStatus().equalsIgnoreCase(status);
 
             if (nameMatch && categoryMatch && statusMatch) {
-                results.add(t);            //Add to the ticket arraylist if the particular ticket passes all the3 checks; above.
+                results.add(t);
             }
         }
         return results;
